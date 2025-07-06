@@ -1,11 +1,65 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Index = () => {
+  const { user } = useAuth();
+
+  if (user) {
+    return null; // This will be handled by the authenticated app routing
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-blue-700 mb-4">
+            IIIT Manipur Digital Campus System
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            A comprehensive digital solution for managing academic, hostel, and administrative 
+            activities at Indian Institute of Information Technology, Manipur.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-blue-600">Academic Management</CardTitle>
+              <CardDescription>
+                Manage students, faculty, subjects, timetables, and attendance tracking
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-green-600">Hostel Management</CardTitle>
+              <CardDescription>
+                Handle hostel complaints, room assignments, and warden communications
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-orange-600">Mess Management</CardTitle>
+              <CardDescription>
+                Manage daily mess menus, meal types, and dietary preferences
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+
+        <div className="text-center">
+          <Button size="lg" className="mr-4">
+            Get Started
+          </Button>
+          <Button variant="outline" size="lg">
+            Learn More
+          </Button>
+        </div>
       </div>
     </div>
   );
