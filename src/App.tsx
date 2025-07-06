@@ -8,6 +8,9 @@ import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import AuthPage from "@/components/auth/AuthPage";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import Dashboard from "@/components/dashboard/Dashboard";
+import Timetable from "@/pages/Timetable";
+import Attendance from "@/pages/Attendance";
+import Complaints from "@/pages/Complaints";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +39,9 @@ function AuthenticatedApp() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/timetable" element={<Timetable />} />
+        <Route path="/attendance" element={<Attendance />} />
+        <Route path="/complaints" element={<Complaints />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </DashboardLayout>

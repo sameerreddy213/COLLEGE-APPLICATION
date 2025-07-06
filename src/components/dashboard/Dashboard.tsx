@@ -1,61 +1,50 @@
 
 import { useAuth } from '@/hooks/useAuth';
-import DashboardStats from './DashboardStats';
+import StudentDashboard from '@/components/students/StudentDashboard';
+import FacultyDashboard from '@/components/faculty/FacultyDashboard';
+import AdminDashboard from '@/components/admin/AdminDashboard';
+import HostelWardenDashboard from '@/components/hostel/HostelWardenDashboard';
+import MessSupervisorDashboard from '@/components/mess/MessSupervisorDashboard';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Dashboard() {
   const { userRole } = useAuth();
 
-  const getRoleSpecificContent = () => {
+  const renderDashboard = () => {
     switch (userRole) {
       case 'student':
-        return (
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Today's Schedule</CardTitle>
-                <CardDescription>Your classes for today</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  No classes scheduled for today.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Attendance Summary</CardTitle>
-                <CardDescription>Your attendance overview</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">85%</p>
-                <p className="text-sm text-muted-foreground">Overall attendance</p>
-              </CardContent>
-            </Card>
-          </div>
-        );
+        return <StudentDashboard />;
       case 'faculty':
+        return <FacultyDashboard />;
+      case 'super_admin':
+      case 'academic_staff':
+        return <AdminDashboard />;
+      case 'hostel_warden':
+        return <HostelWardenDashboard />;
+      case 'mess_supervisor':
+        return <MessSupervisorDashboard />;
+      case 'hod':
+      case 'director':
         return (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight">Leadership Dashboard</h2>
+              <p className="text-muted-foreground">
+                Welcome to your executive overview
+              </p>
+            </div>
+            
             <Card>
               <CardHeader>
-                <CardTitle>Today's Classes</CardTitle>
-                <CardDescription>Your teaching schedule</CardDescription>
+                <CardTitle>Analytics & Reports</CardTitle>
+                <CardDescription>
+                  Department-wide insights and performance metrics
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  3 classes scheduled today
+                  Advanced analytics features coming soon...
                 </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Pending Attendance</CardTitle>
-                <CardDescription>Classes requiring attendance marking</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold text-orange-600">2</p>
-                <p className="text-sm text-muted-foreground">Classes pending</p>
               </CardContent>
             </Card>
           </div>
@@ -79,18 +68,5 @@ export default function Dashboard() {
     }
   };
 
-  return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-        <p className="text-muted-foreground">
-          Welcome to your digital campus portal
-        </p>
-      </div>
-      
-      <DashboardStats />
-      
-      {getRoleSpecificContent()}
-    </div>
-  );
+  return renderDashboard();
 }
