@@ -55,7 +55,7 @@ export default function Dashboard() {
             <CardHeader>
               <CardTitle>Welcome to IIIT Manipur Digital Campus</CardTitle>
               <CardDescription>
-                Your role: {userRole?.replace('_', ' ').toUpperCase()}
+                Your role: {userRole ? userRole.replace('_', ' ').toUpperCase() : 'Unknown'}
               </CardDescription>
             </CardHeader>
             <CardContent>
