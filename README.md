@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# Manipur Digital Campus Hub
 
-## Project info
+A comprehensive digital campus management system for IIIT Manipur, designed to streamline academic and administrative operations.
 
-**URL**: https://lovable.dev/projects/e40a2834-7c44-4cae-97f0-07e4a3784aaf
+## Features
 
-## How can I edit this code?
+- **Student Management**: Complete student profile management, batch tracking, and academic records
+- **Faculty Dashboard**: Department management, course assignments, and academic oversight
+- **Attendance System**: Digital attendance tracking with real-time reporting
+- **Complaint Management**: Hostel and facility complaint tracking and resolution
+- **Mess Menu Management**: Daily menu planning and dietary preference management
+- **Timetable Management**: Academic schedule creation and management
+- **Holiday Calendar**: Academic holiday planning and notifications
+- **Role-based Access**: Secure access control for different user types
 
-There are several ways of editing your application.
+## Technology Stack
 
-**Use Lovable**
+- **Frontend**: React with TypeScript, Tailwind CSS, Shadcn/ui
+- **Backend**: Node.js with Express, MongoDB
+- **Authentication**: JWT-based authentication
+- **Real-time**: WebSocket support for live updates
+- **Performance**: Redis caching, rate limiting, compression
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e40a2834-7c44-4cae-97f0-07e4a3784aaf) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18 or higher)
+- MongoDB
+- Redis (optional, for caching)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd manipur-digital-campus-hub
+```
 
-Follow these steps:
+2. Install dependencies for both frontend and backend:
+```bash
+# Install frontend dependencies
+cd frontend
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install backend dependencies
+cd ../backend
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. Set up environment variables:
+```bash
+# Copy environment example for backend
+cp env.example .env
+# Edit the .env file with your configuration
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Start the development servers (in separate terminals):
+```bash
+# Start backend server
+cd backend
+npm run dev
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start frontend server (in another terminal)
+cd frontend
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Backend Deployment
 
-**Use GitHub Codespaces**
+The backend is optimized for high-traffic scenarios with:
+- Connection pooling for MongoDB
+- Redis caching
+- Rate limiting and speed limiting
+- Compression middleware
+- Security headers with Helmet
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Frontend Deployment
 
-## What technologies are used for this project?
+The frontend can be deployed to any static hosting service:
+- Vercel
+- Netlify
+- AWS S3 + CloudFront
+- GitHub Pages
 
-This project is built with:
+## Architecture
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Scalability Features
 
-## How can I deploy this project?
+- **Database**: MongoDB with optimized connection pools
+- **Caching**: Redis for session and data caching
+- **Rate Limiting**: Configurable rate limits for API protection
+- **Load Balancing**: Ready for horizontal scaling
+- **Monitoring**: Health check endpoints and logging
 
-Simply open [Lovable](https://lovable.dev/projects/e40a2834-7c44-4cae-97f0-07e4a3784aaf) and click on Share -> Publish.
+### Security Features
 
-## Can I connect a custom domain to my Lovable project?
+- JWT-based authentication
+- Role-based access control
+- Input validation and sanitization
+- CORS configuration
+- Security headers with Helmet
+- Rate limiting protection
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+
+This project is licensed under the MIT License.
+
+## Support
+
+For support and questions, please contact the development team or create an issue in the repository.
